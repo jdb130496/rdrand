@@ -6,7 +6,7 @@ os.environ["CXX"] = "g++"
 
 setup(
     name='rdrand',
-    version='1.5.0',
+    version='1.4.9',
     description="Python interface to Intel hardware rng",
     long_description= "".join(open('rdrandom.rst').readlines()),
     author="Chris Stillson",

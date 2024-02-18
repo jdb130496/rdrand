@@ -100,6 +100,14 @@ cpuid(unsigned int op, unsigned int subfunc, unsigned int reg[4])
 
 #if USING_GCC && IS64BIT
     __cpuid(reg, op, subfunc);
+#elif USING_GCC
+	asm volatile("push %%rbx      \n\t" /* save %ebx */
+                 "cpuid            \n\t"
+                 "movl %%ebx, %1   \n\t" /* save what cpuid just put in %ebx */
+                 "pop %%rbx       \n\t" /* restore the old %ebx */
+                 : "=a"(reg[0]), "=r"(reg[1]), "=c"(reg[2]), "=d"(reg[3])
+                 : "a"(op), "c"(subfunc)
+                 : "cc");
 #else
     asm volatile("pushl %%ebx      \n\t" /* save %ebx */
                  "cpuid            \n\t"
@@ -110,7 +118,6 @@ cpuid(unsigned int op, unsigned int subfunc, unsigned int reg[4])
                  : "cc");
 #endif
 }
-
 int
 RdRand_cpuid(void)
 {

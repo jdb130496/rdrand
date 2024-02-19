@@ -2,6 +2,10 @@ RDRAND
 
 A module to use Intel's hardware RNG with python's random class
 
+Installation
+
+pip install . after cloning the repository to a local folder (preferably, don't use - python setup.py install - as it is deprecated since Python 3.11) 
+
 USAGE
 
 #easy_install rdrand

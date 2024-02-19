@@ -30,3 +30,6 @@ of length ``i`` filled with random bytes, which is ideal for generating a key or
 
 Please note, as with any security solution, it is possible to subvert this. Please understand the full              context before deploying. I am not liable for misuse or clever hackers.
 
+Certain changes made in C code to make it compatible with mingw64 gcc
+tool-chain for seamless installation on windows. Tested on Windows 11 using
+msys2 shell.

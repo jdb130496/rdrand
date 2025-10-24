@@ -36,6 +36,6 @@ This can be easily compiled in msys64 (bash shell) with gcc / clang mingw64 ucrt
 
 Supports latest python version 3.14 just released.
 
-Works on both intel and AMD ecosystems.
+Works on both intel and AMD chipsets.
 
 Those interested in msvc compiled rdrand can access it at: https://github.com/jdb130496/code-snippets where along with other examples rdrand folder has been included. It has both source and binary wheels compiled with msvc using Visual Studio BuildTools - Portable version of which is available at: https://github.com/Data-Oriented-House/PortableBuildTools  

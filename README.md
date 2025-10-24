@@ -29,5 +29,9 @@ Also, both RdRandom and RdSeedom include the function ``r.getrandbytes(i)`` wher
 of length ``i`` filled with random bytes, which is ideal for generating a key or using directly in a p             rotocol.
 
 Please note, as with any security solution, it is possible to subvert this. Please understand the full              context before deploying. I am not liable for misuse or clever hackers.
-This can be easily compiled in msys64 (bash shell) with gcc / clang mingw64 ucrt64 toolchain pre-installed using pacman -S <Name of Toolchain>. Supportslatest python version 3.14 just released.
+
+This can be easily compiled in msys64 (bash shell) with gcc / clang mingw64 ucrt64 toolchain pre-installed using pacman -S <Name of Toolchain>. 
+
+Supports latest python version 3.14 just released.
+
 Works on both intel and AMD ecosystems.

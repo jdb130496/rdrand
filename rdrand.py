@@ -50,8 +50,7 @@ class BaseRandom(StdRandom):
         """Get the next random number in the range [0.0, 1.0).
            52 is the number of bits
         """
-#        return (1.0 * self.get_bits(52)) / (2 ** 52)
-        return self.get_bits(64)
+        return (1.0 * self.get_bits(52)) / (2 ** 52)
 
     def getrandbytes(self, k):
         if k <= 0:

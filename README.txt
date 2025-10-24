@@ -2,10 +2,6 @@ RDRAND
 
 A module to use Intel's hardware RNG with python's random class
 
-Installation
-
-pip install . after cloning the repository to a local folder (preferably, don't use - python setup.py install - as it is deprecated since Python 3.11) 
-
 USAGE
 
 #easy_install rdrand
@@ -33,7 +29,5 @@ Also, both RdRandom and RdSeedom include the function ``r.getrandbytes(i)`` wher
 of length ``i`` filled with random bytes, which is ideal for generating a key or using directly in a p             rotocol.
 
 Please note, as with any security solution, it is possible to subvert this. Please understand the full              context before deploying. I am not liable for misuse or clever hackers.
-
-Certain changes made in C code to make it compatible with mingw64 gcc
-tool-chain for seamless installation on windows. Tested on Windows 11 using
-msys2 shell.
+This can be easily compiled in msys64 (bash shell) with gcc / clang mingw64 ucrt64 toolchain pre-installed using pacman -S <Name of Toolchain>. Supportslatest python version 3.14 just released.
+Works on both intel and AMD ecosystems.

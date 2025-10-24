@@ -100,24 +100,17 @@ cpuid(unsigned int op, unsigned int subfunc, unsigned int reg[4])
 
 #if USING_GCC && IS64BIT
     __cpuid(reg, op, subfunc);
-#elif USING_GCC
-	asm volatile("push %%rbx      \n\t" /* save %ebx */
+#else
+    asm volatile("push %%rbx      \n\t" /* save %ebx */
                  "cpuid            \n\t"
                  "movl %%ebx, %1   \n\t" /* save what cpuid just put in %ebx */
                  "pop %%rbx       \n\t" /* restore the old %ebx */
                  : "=a"(reg[0]), "=r"(reg[1]), "=c"(reg[2]), "=d"(reg[3])
                  : "a"(op), "c"(subfunc)
                  : "cc");
-#else
-    asm volatile("pushl %%ebx      \n\t" /* save %ebx */
-                 "cpuid            \n\t"
-                 "movl %%ebx, %1   \n\t" /* save what cpuid just put in %ebx */
-                 "popl %%ebx       \n\t" /* restore the old %ebx */
-                 : "=a"(reg[0]), "=r"(reg[1]), "=c"(reg[2]), "=d"(reg[3])
-                 : "a"(op), "c"(subfunc)
-                 : "cc");
 #endif
 }
+
 int
 RdRand_cpuid(void)
 {
@@ -382,7 +375,8 @@ get_bits(PyObject *self, PyObject *args, uint64_t quad(void), void fill(uint64_t
     if(num_chars)
     {
         rando = quad();
-        bcopy((char*)&rando, &data[num_quads * 8], num_chars);
+        //bcopy((char*)&rando, &data[num_quads * 8], num_chars);
+	memcpy(&data[num_quads * 8], (char*)&rando, num_chars);
     }
 
     if (lm_shift != 0)
@@ -444,7 +438,7 @@ get_bytes(PyObject *self, PyObject *args, void fill(uint64_t *, uint32_t))
     }
 
     // Let python truncate it to the correct length
-    fill_buf_using_rdrand(udata, nq);
+    fill(udata, nq);
 
 #if PYTHON2 == 1
     result = Py_BuildValue("s#", data, num_bytes);

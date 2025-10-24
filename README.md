@@ -32,7 +32,7 @@ Please note, as with any security solution, it is possible to subvert this. Plea
 
 Original at https://github.com/stillson/rdrand. Modified to suit windows users having msys64 ecosystem. 
 
-This can be easily compiled in msys64 (bash shell) with gcc / clang mingw64 ucrt64 toolchain pre-installed using pacman -S <Name of Toolchain>. 
+This can be easily compiled in msys64 (bash shell) with gcc / clang mingw64 ucrt64 toolchain pre-installed using pacman -S <Name of Toolchain>. After cloning the repository just go to rdrand folder and use pip install . - Wheels will be compiled and stored under Lib/site-packages inside PYTHON_HOME 
 
 Supports latest python version 3.14 just released.
 
